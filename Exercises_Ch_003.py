@@ -123,17 +123,48 @@
 #  5. The Konidtorei coffee shop sells coffee at $10.50 a pound plus the cost of shipping. Each order ships for $.086 per pound + $1.50 fixed cost
 #     for overhead. Write a program that calculates the cost of an order.
 
+def coffee():
+    quantity = int(input("Enter the order quantity in pounds :"))
+    price = (10.5+0.86)*quantity + 1.5
+    print("Cost of an Order is $",price)
+coffee()
+
 #  6. Two points in a plane are specified using the coordinates (x1,y1) and (x2,y2). Write a program that calculates the slope of a line through
 #     two (non-vertical) points entered by the user.
 #                                                   slope = (y2 - y1) / (x2 - x1)
+def slope():
+    x1,y1 = eval(input("Enter the x1 and y1 coordinates separated by comma"))
+    x2,y2 = eval(input("Enter the x2 and y2 coordinates separated by comma"))
+    slp = (y2-y1)/(x2-x1)
+    print("The slope for given point of coordinates is",slp)
+    
+slope()
+
 
 #  7. Write a program that accepts two points (see previous problem) and determins the distance between them.
 #     distances = sqrt((x2-x1)^2 + (y2-y1)^2)
+
+
+import math
+def distance():
+    x1,y1 = eval(input("Enter the coordinates for first point separated by comma"))
+    x2,y2 = eval(input("Enter the coordinates for second point separated by comma"))
+    dist = math.sqrt(((x2-x1)**2)+((y2-y1)**2))
+    print("The distance between two points with coordinates(",x1,",",y1,") and (",x2,",",y2,")is",dist)
+distance()
 
 #  8. The Gregorian epact is the number of days between Janaury 1st and the previous new moon. This value is used to figure out the date of Easter.
 #     It is calculated by these formulas (using int arithmetic):
 #                                                               C = year//100
 #                                                               epact = (8 + (C//4) - C + ((8C + 13)//25) + 11(year%19))%30
+
+def easter():
+    year = int(input("Enter the four-digit year"))
+    C = year//100
+    epact = (8+(C//4)-C + ((8*C+13)//25)+11*(year%19))%30
+    print("The value of epact is ",epact)
+
+easter()
 
 #  9. Write a program to calcualte the area of a triangle given the length of its three sides--a, b, and c--using these formulas:
 #                                         s = (a + b + c) / 2
